@@ -37,11 +37,39 @@
   }
   .nav-inner{
     max-width:980px;margin:0 auto;padding:0 24px;height:48px;
-    display:flex;align-items:center;justify-content:space-between;
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:16px;
   }
-  .nav-brand{font-weight:600;font-size:15px;letter-spacing:-0.01em;}
+  .nav-left{
+    display:flex;align-items:center;justify-content:flex-start;min-width:0;
+  }
+  .nav-center{
+    display:flex;align-items:center;justify-content:center;min-width:0;
+  }
+  .nav-brand{font-weight:600;font-size:15px;letter-spacing:-0.01em;text-align:center;}
   .nav-brand span{color:var(--ink-3);font-weight:400;}
   .nav-meta{font-size:12px;color:var(--ink-3);font-weight:400;}
+  .nav-home{
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:600;
+    font-size:13px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    white-space:nowrap;
+  }
+
+  @media (max-width:760px){
+    .nav-inner{
+      height:auto;
+      padding:12px 18px;
+      grid-template-columns:1fr;
+      justify-items:center;
+    }
+    .nav-left{width:100%;justify-content:flex-start;}
+    .nav-meta{text-align:center;}
+  }
 
   /* ── HERO ── */
   .hero{padding:110px 0 70px;text-align:center;}
@@ -247,7 +275,12 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <span class="nav-brand">BookIT <span>· Case Study</span></span>
+      <div class="nav-left">
+        <a class="nav-home" href="../index.html">&#8592;&nbsp;Back</a>
+      </div>
+      <div class="nav-center">
+        <span class="nav-brand">BookIT <span>· Case Study</span></span>
+      </div>
       <span class="nav-meta">Tetiana Dovgalenko - UX/UI Designer</span>
     </div>
   </nav>

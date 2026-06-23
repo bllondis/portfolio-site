@@ -21,7 +21,7 @@ body{
 ::selection{background:var(--sky);color:#fff}
 .mono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
 
 /* ---------- atmosphere ---------- */
 #cosmos{position:fixed;inset:0;z-index:0;pointer-events:none}

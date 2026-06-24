@@ -28,6 +28,7 @@
   @media (max-width:760px){
     .nav-inner{height:auto;padding:12px 18px;grid-template-columns:1fr;justify-items:center;}
     .nav-left{width:100%;justify-content:flex-start;}
+    .nav-center,.nav-meta{display:none;}
     .nav-meta{text-align:center;}
   }
 
@@ -243,6 +244,7 @@
     section.feature,section.narr,.learnings{padding:64px 0;}
     .hero{padding:72px 0 48px;}
     .tb{flex-direction:column;}
+    .tb-item{flex:0 0 auto;}
     .steps{grid-template-columns:1fr 1fr;}
     .analysis-top{grid-template-columns:1fr;}
     .tension-grid{grid-template-columns:1fr;}
@@ -252,6 +254,16 @@
     .problem-card{padding:24px 22px 26px;}
     .problem-title{font-size:1.45rem;}
     .problem-copy{font-size:15.5px;}
+    .mobile-inset .steps,
+    .mobile-inset .speclist,
+    .mobile-inset .subhead,
+    .mobile-inset .subhead-note,
+    .mobile-inset .shot,
+    .mobile-inset .shot-video{
+      padding-left:24px;
+      padding-right:24px;
+    }
+    footer{display:none;}
     .floating-demo-link{right:16px;left:16px;bottom:16px;justify-content:center;padding:14px 18px;}
     .lightbox-prev{left:12px;} .lightbox-next{right:12px;}
     .lightbox-nav{width:40px;height:40px;font-size:20px;}
@@ -262,7 +274,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <div class="nav-left">
-        <a class="nav-home" href="../index.html">&#8592;&nbsp;Back</a>
+        <a class="nav-home" href="../../index.html">&#8592;&nbsp;Back</a>
       </div>
       <div class="nav-center">
         <span class="nav-brand">Timeflow <span>· Case Study</span></span>
@@ -389,7 +401,7 @@
     </div>
   </section>
 
-  <section class="narr reveal">
+  <section class="narr reveal mobile-inset">
     <div class="wrap">
       <p class="eyebrow">The reframe</p>
       <h2>Don't log time. Review it.</h2>
@@ -445,7 +457,7 @@
     </div>
   </section>
 
-  <section class="narr reveal">
+  <section class="narr reveal mobile-inset">
     <div class="wrap">
       <p class="eyebrow">Design system</p>
       <h2>Warm precision. Not another dashboard.</h2>

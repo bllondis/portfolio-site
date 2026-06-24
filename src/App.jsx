@@ -194,6 +194,22 @@ export default function App() {
       });
     };
 
+    const scrollToHashTarget = () => {
+      const { hash } = window.location;
+      if (!hash) return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    };
+
+    const scheduleHashScroll = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(scrollToHashTarget);
+      });
+    };
+
     const photoNodes = Array.from(document.querySelectorAll('#constellation .photo'));
     const handlePhotoTransitionEnd = (event) => {
       if (event.propertyName === 'transform' || event.propertyName === 'opacity') {
@@ -203,6 +219,7 @@ export default function App() {
 
     window.addEventListener('resize', scheduleConstellationRedraw);
     window.addEventListener('load', scheduleConstellationRedraw);
+    window.addEventListener('hashchange', scheduleHashScroll);
     photoNodes.forEach((node) => {
       node.addEventListener('transitionend', handlePhotoTransitionEnd);
       const image = node.querySelector('img');
@@ -213,6 +230,8 @@ export default function App() {
 
     scheduleConstellationRedraw();
     setTimeout(scheduleConstellationRedraw, 900);
+    scheduleHashScroll();
+    setTimeout(scheduleHashScroll, 250);
 
     return () => {
       if (mobileMenuMedia && syncMobileMenu) {
@@ -221,6 +240,7 @@ export default function App() {
       navToggle?.remove();
       window.removeEventListener('resize', scheduleConstellationRedraw);
       window.removeEventListener('load', scheduleConstellationRedraw);
+      window.removeEventListener('hashchange', scheduleHashScroll);
       photoNodes.forEach((node) => {
         node.removeEventListener('transitionend', handlePhotoTransitionEnd);
       });
